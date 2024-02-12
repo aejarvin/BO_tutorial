@@ -101,7 +101,6 @@ def evaluate_and_plot(fig, canvas):
         lower, upper = observed_pred.confidence_region()
         yt_target = hidden_f(test_x_d)
         plot.plot(yt_target['x'],yt_target['y'],'k--', label='Hidden function')
-        fig.savefig('hidden_f.png')
         ucb_pred = UCB(test_x_d.unsqueeze(1).unsqueeze(1))
         plot.plot(test_x_d, ucb_pred, 'r-', label='Acq. function')
         plot.plot(test_x_d.numpy(), observed_pred.mean.numpy(), 'b', label='GPR')
